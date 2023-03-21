@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/good_16x16.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/good_16x16.png">
+  <link rel="mask-icon" href="/images/good.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha256-Z1K5uhUaJXA7Ll0XrZ/0JhX4lAtZFpT6jkKrEDT0drU=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"shiquheng.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.14.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="摘要本文记录了LaTex引用的基本语法以及注意要点">
+<meta property="og:type" content="article">
+<meta property="og:title" content="LaTex引用章节、公式和图表">
+<meta property="og:url" content="https://shiquheng.github.io/2023/03/02/09-40-52/index.html">
+<meta property="og:site_name" content="Liuzhihua">
+<meta property="og:description" content="摘要本文记录了LaTex引用的基本语法以及注意要点">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://shiquheng.github.io/pic/2023-03-02-09-50-16.png">
+<meta property="og:image" content="https://shiquheng.github.io/pic/2023-03-02-09-57-28.png">
+<meta property="og:image" content="https://shiquheng.github.io/pic/2023-03-02-10-07-07.png">
+<meta property="og:image" content="https://shiquheng.github.io/pic/2023-03-02-10-11-25.png">
+<meta property="article:published_time" content="2023-03-02T01:40:52.000Z">
+<meta property="article:modified_time" content="2023-03-10T08:00:26.319Z">
+<meta property="article:author" content="LiuZhihua">
+<meta property="article:tag" content="LaTeX">
+<meta property="article:tag" content="引用">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://shiquheng.github.io/pic/2023-03-02-09-50-16.png">
+
+
+<link rel="canonical" href="https://shiquheng.github.io/2023/03/02/09-40-52/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://shiquheng.github.io/2023/03/02/09-40-52/","path":"2023/03/02/09-40-52/","title":"LaTex引用章节、公式和图表"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>LaTex引用章节、公式和图表 | Liuzhihua</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Liuzhihua</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">永远不要随波逐流</p>
+      <img class="custom-logo-image" src="/uploads/liuzhihua_logo.png" alt="Liuzhihua">
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">22</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">6</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">15</span></a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BC%95%E7%94%A8%E5%9B%BE%E7%89%87"><span class="nav-number">1.</span> <span class="nav-text">引用图片</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BC%95%E7%94%A8%E7%AB%A0%E8%8A%82"><span class="nav-number">2.</span> <span class="nav-text">引用章节</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BC%95%E7%94%A8%E5%85%AC%E5%BC%8F%E3%80%81%E7%AE%97%E6%B3%95%E5%92%8C%E8%A1%A8%E6%A0%BC"><span class="nav-number">3.</span> <span class="nav-text">引用公式、算法和表格</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BC%95%E7%94%A8%E5%85%83%E7%B4%A0%E6%89%80%E5%9C%A8%E9%A1%B5"><span class="nav-number">4.</span> <span class="nav-text">引用元素所在页</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BC%96%E8%AF%91%E5%B8%A6%E6%9C%89%E5%BC%95%E7%94%A8%E7%9A%84%E6%96%87%E6%A1%A3-%E6%89%A9%E5%B1%95"><span class="nav-number">5.</span> <span class="nav-text">编译带有引用的文档(扩展)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%85%B6%E4%BB%96%E5%91%BD%E4%BB%A4"><span class="nav-number">6.</span> <span class="nav-text">其他命令</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8-cite-cref-autoref"><span class="nav-number">6.1.</span> <span class="nav-text">使用~\cite, ~\cref, ~\autoref</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">LiuZhihua</p>
+  <div class="site-description" itemprop="description">个人博客</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">15</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">22</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/ShiQuheng" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;ShiQuheng" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/liuzhihua0415@foxmail.com" title="E-Mail → liuzhihua0415@foxmail.com" rel="noopener me"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://shiquheng.github.io/2023/03/02/09-40-52/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="LiuZhihua">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Liuzhihua">
+      <meta itemprop="description" content="个人博客">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="LaTex引用章节、公式和图表 | Liuzhihua">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          LaTex引用章节、公式和图表
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-03-02 09:40:52" itemprop="dateCreated datePublished" datetime="2023-03-02T09:40:52+08:00">2023-03-02</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-03-10 16:00:26" itemprop="dateModified" datetime="2023-03-10T16:00:26+08:00">2023-03-10</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/LaTeX/" itemprop="url" rel="index"><span itemprop="name">LaTeX</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p><strong>摘要</strong><br>本文记录了LaTex引用的基本语法以及注意要点 </p>
+<span id="more"></span>
+<h1 id="引用图片"><a href="#引用图片" class="headerlink" title="引用图片"></a>引用图片</h1><p>下面是一个简单的引用图片的例子：  </p>
+<blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">\section&#123;Introduction&#125; \label&#123;introduction&#125;</span><br><span class="line">This is an introductory paragraph with some dummy text. This section will be referenced later.</span><br><span class="line">\begin&#123;figure&#125;[h]</span><br><span class="line">\centering</span><br><span class="line">\includegraphics[width=0.3\linewidth]&#123;overleaf-logo&#125;</span><br><span class="line">\caption&#123;This image will be referenced below.&#125;</span><br><span class="line">\label&#123;fig:leaf&#125;</span><br><span class="line">\end&#123;figure&#125;</span><br><span class="line">You can reference images; for instance, Figure \ref&#123;fig:leaf&#125; shows the \textit&#123;Overleaf&#125; logo.</span><br></pre></td></tr></table></figure>
+<p>命令<code>\label&#123;&#125;</code>创建了一个图题之后的标识符，这个标识符随后被命令<code>\ref&#123;&#125;</code>使用来创建引用数字（或者其他引用格式）。渲染效果：<br><img src="/../pic/2023-03-02-09-50-16.png" alt="引用图片"></p>
+</blockquote>
+<h1 id="引用章节"><a href="#引用章节" class="headerlink" title="引用章节"></a>引用章节</h1><p>下面是一个引用章的例子：</p>
+<blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">\section&#123;Math references&#125; \label&#123;mathrefs&#125;</span><br><span class="line">As mentioned in section \ref&#123;mathrefs&#125;, different elements can be referenced within a document.</span><br></pre></td></tr></table></figure>
+<p>渲染效果：<br><img src="/../pic/2023-03-02-09-57-28.png" alt="引用章节"></p>
+</blockquote>
+<p>与上一个例子相似，这个例子使用了<code>\label</code>和<code>\ref</code>命令来创建引用。在<code>\section</code>命令之后使用<code>\label</code>命令，也就是说，你应该在章的编号被创建之后来使用<code>\label</code>命令。这个方法对chapters、subsections 以及 subsubsections 都有效。  </p>
+<p>注意：在<code>figure</code>（<code>table</code>类似）环境中，先写<code>\caption&#123;&#125;</code>再写<code>\label&#123;&#125;</code>，也就是说，一定要把<code>\label&#123;&#125;</code>放在<code>\caption&#123;&#125;</code>后面，以确保引用编号的正确性。</p>
+<h1 id="引用公式、算法和表格"><a href="#引用公式、算法和表格" class="headerlink" title="引用公式、算法和表格"></a>引用公式、算法和表格</h1><p>同样使用<code>\label</code>和<code>\ref</code>命令来创建引用。</p>
+<blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">\subsection&#123;Powers series&#125; \label&#123;subsection&#125;</span><br><span class="line">\begin&#123;equation&#125; \label&#123;eq:1&#125;</span><br><span class="line">\sum_&#123;i=0&#125;^&#123;\infty&#125; a_i x^i</span><br><span class="line">\end&#123;equation&#125;</span><br><span class="line">Equation \ref&#123;eq:1&#125; is a typical power series.</span><br></pre></td></tr></table></figure>
+<p>渲染效果如下：<br><img src="/../pic/2023-03-02-10-07-07.png" alt="引用公式"></p>
+</blockquote>
+<h1 id="引用元素所在页"><a href="#引用元素所在页" class="headerlink" title="引用元素所在页"></a>引用元素所在页</h1><p>文档中的元素一般使用数字来引用它们。如果你需要的话，你也可以引用它们所在的页数字。</p>
+<blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">\section&#123;Last section&#125;</span><br><span class="line">In subsection \ref&#123;subsection&#125; on page \pageref&#123;eq:1&#125; an example of a power series was presented.</span><br></pre></td></tr></table></figure>
+<p>渲染效果如下:<br><img src="/../pic/2023-03-02-10-11-25.png" alt="引用元素所在页"></p>
+</blockquote>
+<h1 id="编译带有引用的文档-扩展"><a href="#编译带有引用的文档-扩展" class="headerlink" title="编译带有引用的文档(扩展)"></a>编译带有引用的文档(扩展)</h1><p>在 Overleaf 平台上，交叉引用是立即生效的。对于本地的 LaTeX 编译环境，你必须编译文档两次来使交叉引用生效。你也可以使用特定的命令来使所有的交叉引用生效。例如，如果你的文档是<code>main.tex</code>，你可以使用下面的命令:</p>
+<blockquote>
+<p>latexmk -pdf main.tex</p>
+</blockquote>
+<h1 id="其他命令"><a href="#其他命令" class="headerlink" title="其他命令"></a>其他命令</h1><h2 id="使用-cite-cref-autoref"><a href="#使用-cite-cref-autoref" class="headerlink" title="使用~\cite, ~\cref, ~\autoref"></a>使用<code>~\cite</code>, <code>~\cref</code>, <code>~\autoref</code></h2><p><code>~</code>起到限制换行的作用，例如<code>表 ~\cite&#123;label x&#125;</code>能够确保”表x”在一行。<br><code>~\cref</code>命令在宏包<code>cleveref</code>中，它能够将自动识别引用类型，如引用图片会自动加上前缀figure，引用小节会自动加上section。<br><code>~\qutoref</code> 命令在宏包<code>hyperref</code>中，作用与<code>~\cref</code>类似，但是会使引用更加醒目，如引用图片会自动加上前缀Figure(F大写)。</p>
+
+    </div>
+
+    
+    
+    
+    <div>
+    
+      <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+
+    
+    </div>
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>LiuZhihua
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://shiquheng.github.io/2023/03/02/09-40-52/" title="LaTex引用章节、公式和图表">https://shiquheng.github.io/2023/03/02/09-40-52/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/LaTeX/" rel="tag"># LaTeX</a>
+              <a href="/tags/%E5%BC%95%E7%94%A8/" rel="tag"># 引用</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2023/02/22/20-17-04/" rel="prev" title="Python计算非零值的平均值">
+                  <i class="fa fa-chevron-left"></i> Python计算非零值的平均值
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2023/03/07/20-09-44/" rel="next" title="LeetCode_数组中的重复数字">
+                  LeetCode_数组中的重复数字 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+  
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">LiuZhihua</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div><script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://cdn.jsdelivr.net/npm/canvas-nest.js@1/dist/canvas-nest.js"></script>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+  
+
+
+
+
+
+  <!-- 页面点击小红心 -->
+  <script type="text/javascript" src="/js/clicklove.js"></script>
+  <script type="text/javascript" src="/js/dynamic_bg.js"></script>
+</body>
+</html>

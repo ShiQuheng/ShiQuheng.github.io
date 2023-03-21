@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/good_16x16.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/good_16x16.png">
+  <link rel="mask-icon" href="/images/good.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha256-Z1K5uhUaJXA7Ll0XrZ/0JhX4lAtZFpT6jkKrEDT0drU=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"shiquheng.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.14.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="摘要输入一个二维数组和一个整数，判断数组中是否含有该整数。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="LeetCode_二维数组中的查找">
+<meta property="og:url" content="https://shiquheng.github.io/2023/03/08/10-54-36/index.html">
+<meta property="og:site_name" content="Liuzhihua">
+<meta property="og:description" content="摘要输入一个二维数组和一个整数，判断数组中是否含有该整数。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-03-08T02:54:36.000Z">
+<meta property="article:modified_time" content="2023-03-10T08:10:01.949Z">
+<meta property="article:author" content="LiuZhihua">
+<meta property="article:tag" content="LeetCode">
+<meta property="article:tag" content="数组">
+<meta property="article:tag" content="双指针">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://shiquheng.github.io/2023/03/08/10-54-36/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://shiquheng.github.io/2023/03/08/10-54-36/","path":"2023/03/08/10-54-36/","title":"LeetCode_二维数组中的查找"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>LeetCode_二维数组中的查找 | Liuzhihua</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Liuzhihua</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">永远不要随波逐流</p>
+      <img class="custom-logo-image" src="/uploads/liuzhihua_logo.png" alt="Liuzhihua">
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">22</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">6</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">15</span></a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%E6%8F%8F%E8%BF%B0"><span class="nav-number">1.</span> <span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%A7%A3%E6%B3%95"><span class="nav-number">2.</span> <span class="nav-text">解法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%B9%E6%B3%95%E4%B8%80%EF%BC%9A%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE"><span class="nav-number">2.1.</span> <span class="nav-text">方法一：二分查找</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%B9%E6%B3%95%E4%BA%8C%EF%BC%9A%E4%BB%8E%E5%B7%A6%E4%B8%8B%E8%A7%92%E6%88%96%E5%8F%B3%E4%B8%8A%E8%A7%92%E6%90%9C%E7%B4%A2"><span class="nav-number">2.2.</span> <span class="nav-text">方法二：从左下角或右上角搜索</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Python3-%E4%BB%A3%E7%A0%81"><span class="nav-number">3.</span> <span class="nav-text">Python3 代码</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%B9%E6%B3%95%E4%B8%80%EF%BC%9A"><span class="nav-number">3.1.</span> <span class="nav-text">方法一：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%B9%E6%B3%95%E4%BA%8C%EF%BC%9A"><span class="nav-number">3.2.</span> <span class="nav-text">方法二：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%89%A9%E5%B1%95"><span class="nav-number">3.3.</span> <span class="nav-text">扩展</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#case1-%E5%88%97%E8%A1%A8%E4%B8%AD%E6%B2%A1%E6%9C%89%E5%85%83%E7%B4%A0x"><span class="nav-number">3.3.1.</span> <span class="nav-text">case1 列表中没有元素x</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#case2-%E5%88%97%E8%A1%A8%E4%B8%AD%E5%8F%AA%E6%9C%89%E4%B8%80%E4%B8%AA%E5%85%83%E7%B4%A0%E7%AD%89%E4%BA%8Ex"><span class="nav-number">3.3.2.</span> <span class="nav-text">case2 列表中只有一个元素等于x</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#case3-%E5%88%97%E8%A1%A8%E4%B8%AD%E5%AD%98%E5%9C%A8%E5%A4%9A%E4%B8%AA%E5%85%83%E7%B4%A0%E7%AD%89%E4%BA%8Ex"><span class="nav-number">3.3.3.</span> <span class="nav-text">case3 列表中存在多个元素等于x</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Java-%E4%BB%A3%E7%A0%81"><span class="nav-number">4.</span> <span class="nav-text">Java 代码</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%B9%E6%B3%95%E4%B8%80%EF%BC%9A-1"><span class="nav-number">4.1.</span> <span class="nav-text">方法一：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%B9%E6%B3%95%E4%BA%8C%EF%BC%9A-1"><span class="nav-number">4.2.</span> <span class="nav-text">方法二：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%89%A9%E5%B1%95-1"><span class="nav-number">4.3.</span> <span class="nav-text">扩展</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">LiuZhihua</p>
+  <div class="site-description" itemprop="description">个人博客</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">15</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">22</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/ShiQuheng" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;ShiQuheng" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/liuzhihua0415@foxmail.com" title="E-Mail → liuzhihua0415@foxmail.com" rel="noopener me"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://shiquheng.github.io/2023/03/08/10-54-36/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="LiuZhihua">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Liuzhihua">
+      <meta itemprop="description" content="个人博客">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="LeetCode_二维数组中的查找 | Liuzhihua">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          LeetCode_二维数组中的查找
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-03-08 10:54:36" itemprop="dateCreated datePublished" datetime="2023-03-08T10:54:36+08:00">2023-03-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-03-10 16:10:01" itemprop="dateModified" datetime="2023-03-10T16:10:01+08:00">2023-03-10</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/LeetCode/" itemprop="url" rel="index"><span itemprop="name">LeetCode</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p><strong>摘要</strong><br>输入一个二维数组和一个整数，判断数组中是否含有该整数。</p>
+<span id="more"></span> 
+<h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><p>在一个 <code>n * m</code> 的二维数组中，每一行都按照从左到右递增的顺序排序，每一列都按照从上到下递增的顺序排序。请完成一个高效的函数，输入这样的一个二维数组和一个整数，判断数组中是否含有该整数。<br>示例:<br>现有矩阵 matrix 如下：</p>
+<blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[</span><br><span class="line"> [1,   4,  7, 11, 15],</span><br><span class="line"> [2,   5,  8, 12, 19],</span><br><span class="line"> [3,   6,  9, 16, 22],</span><br><span class="line"> [10, 13, 14, 17, 24],</span><br><span class="line"> [18, 21, 23, 26, 30]</span><br><span class="line">&gt;]</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>给定 <code>target = 5</code>，返回 <code>true</code>。</p>
+<p>给定 <code>target = 20</code>，返回 <code>false</code>。</p>
+<p>限制：</p>
+<p><code>0 &lt;= n &lt;= 1000</code></p>
+<p><code>0 &lt;= m &lt;= 1000</code></p>
+<h1 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h1><h2 id="方法一：二分查找"><a href="#方法一：二分查找" class="headerlink" title="方法一：二分查找"></a>方法一：二分查找</h2><p>由于每一行的所有元素升序排列，因此，对于每一行，我们可以使用二分查找找到第一个大于等于 <code>target</code> 的元素，然后判断该元素是否等于 <code>target</code>。如果等于 <code>target</code>，说明找到了目标值，直接返回 <code>true</code>。如果不等于 <code>target</code>，说明这一行的所有元素都小于 <code>target</code>，应该继续搜索下一行。</p>
+<p>如果所有行都搜索完了，都没有找到目标值，说明目标值不存在，返回 <code>false</code>。<br>时间复杂度$O(m \times \log n)$，空间复杂度$O(1)$。其中$m$和$n$分别为矩阵的行数和列数。</p>
+<h2 id="方法二：从左下角或右上角搜索"><a href="#方法二：从左下角或右上角搜索" class="headerlink" title="方法二：从左下角或右上角搜索"></a>方法二：从左下角或右上角搜索</h2><p>这里我们以左下角作为起始搜索点，往右上方向开始搜索，比较当前元素 <code>matrix[i][j]</code>与 <code>target</code> 的大小关系：  </p>
+<blockquote>
+<ul>
+<li>若 <code>matrix[i][j] == target</code>，说明找到了目标值，直接返回 <code>true</code>。</li>
+<li>若 <code>matrix[i][j] &gt; target</code>，说明这一行从当前位置开始往右的所有元素均大于 <code>target</code>，应该让$i$指针往上移动，即$i\leftarrow i-1$。</li>
+<li>若 <code>matrix[i][j] &lt; target</code>，说明这一列从当前位置开始往上的所有元素均小于 <code>target</code>，应该让$j$指针往右移动，即$j\leftarrow j-1$。</li>
+</ul>
+</blockquote>
+<p>若搜索结束依然找不到 <code>target</code>，返回 <code>false</code>。<br>时间复杂度$O(m + n)$，空间复杂度$O(1)$。其中$m$和$n$分别为矩阵的行数和列数。</p>
+<h1 id="Python3-代码"><a href="#Python3-代码" class="headerlink" title="Python3 代码"></a>Python3 代码</h1><h2 id="方法一："><a href="#方法一：" class="headerlink" title="方法一："></a>方法一：</h2><blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">   <span class="keyword">def</span> <span class="title function_">findNumberIn2DArray</span>(<span class="params">self, matrix: <span class="type">List</span>[<span class="type">List</span>[<span class="built_in">int</span>]], target: <span class="built_in">int</span></span>) -&gt; <span class="built_in">bool</span>:</span><br><span class="line">       <span class="keyword">for</span> row <span class="keyword">in</span> matrix:</span><br><span class="line">           j = bisect_left(row, target) <span class="comment">#python 二分查找</span></span><br><span class="line">           <span class="keyword">if</span> j &lt; <span class="built_in">len</span>(matrix[<span class="number">0</span>]) <span class="keyword">and</span> row[j] == target:</span><br><span class="line">               <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">       <span class="keyword">return</span> <span class="literal">False</span></span><br></pre></td></tr></table></figure>
+</blockquote>
+<h2 id="方法二："><a href="#方法二：" class="headerlink" title="方法二："></a>方法二：</h2><blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">   <span class="keyword">def</span> <span class="title function_">findNumberIn2DArray</span>(<span class="params">self, matrix: <span class="type">List</span>[<span class="type">List</span>[<span class="built_in">int</span>]], target: <span class="built_in">int</span></span>) -&gt; <span class="built_in">bool</span>:</span><br><span class="line">       <span class="keyword">if</span> <span class="keyword">not</span> matrix <span class="keyword">or</span> <span class="keyword">not</span> matrix[<span class="number">0</span>]:</span><br><span class="line">           <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">       m, n = <span class="built_in">len</span>(matrix), <span class="built_in">len</span>(matrix[<span class="number">0</span>])</span><br><span class="line">       i, j = m - <span class="number">1</span>, <span class="number">0</span></span><br><span class="line">       <span class="keyword">while</span> i &gt;= <span class="number">0</span> <span class="keyword">and</span> j &lt; n:</span><br><span class="line">           <span class="keyword">if</span> matrix[i][j] == target:</span><br><span class="line">               <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">           <span class="keyword">if</span> matrix[i][j] &gt; target:</span><br><span class="line">               i -= <span class="number">1</span></span><br><span class="line">           <span class="keyword">else</span>:</span><br><span class="line">               j += <span class="number">1</span></span><br><span class="line">       <span class="keyword">return</span> <span class="literal">False</span></span><br></pre></td></tr></table></figure>
+</blockquote>
+<h2 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h2><p><strong>前提：列表有序！！！</strong>  </p>
+<p><code>bisect()</code>和<code>bisect_right()</code>等同,<code>bisect.bisect</code>和<code>bisect.bisect_right</code>返回大于<code>x</code>的第一个下标(相当于C++中的upper_bound)，<code>bisect.bisect_left</code>返回大于等于<code>x</code>的第一个下标(相当于C++中的lower_bound)。<br>用法： </p>
+<blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;index1 = bisect(ls, x)   <span class="comment">#第1个参数是列表，第2个参数是要查找的数，返回值为索引</span></span><br><span class="line">&gt;index2 = bisect_left(ls, x)</span><br><span class="line">&gt;index3 = bisec_right(ls, x)</span><br></pre></td></tr></table></figure>
+</blockquote>
+<h3 id="case1-列表中没有元素x"><a href="#case1-列表中没有元素x" class="headerlink" title="case1 列表中没有元素x"></a>case1 列表中没有元素x</h3><p>如果列表中没有元素<code>x</code>，那么<code>bisect_left(ls, x)</code>和<code>bisec_right(ls, x)</code>返回相同的值，该值是<code>x</code>在<code>ls</code>中“合适的插入点索引，使得数组有序”。此时，<code>ls[index2] &gt; x</code>，<code>ls[index3] &gt; x</code>。</p>
+<blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt;<span class="keyword">import</span> bisect</span><br><span class="line">&gt;ls = [<span class="number">1</span>,<span class="number">5</span>,<span class="number">9</span>,<span class="number">13</span>,<span class="number">17</span>]</span><br><span class="line">&gt;index1 = bisect.bisect(ls,<span class="number">7</span>)</span><br><span class="line">&gt;index2 = bisect.bisect_left(ls,<span class="number">7</span>)</span><br><span class="line">&gt;index3 = bisect.bisect_right(ls,<span class="number">7</span>)</span><br><span class="line">&gt;<span class="built_in">print</span>(<span class="string">&quot;index1 = &#123;&#125;, index2 = &#123;&#125;, index3 = &#123;&#125;&quot;</span>.<span class="built_in">format</span>(index1, index2, index3))</span><br></pre></td></tr></table></figure>
+<p>程序运行结果为:<br>index1 &#x3D; 2, index2 &#x3D; 2, index3 &#x3D; 2</p>
+</blockquote>
+<h3 id="case2-列表中只有一个元素等于x"><a href="#case2-列表中只有一个元素等于x" class="headerlink" title="case2 列表中只有一个元素等于x"></a>case2 列表中只有一个元素等于x</h3><p>如果列表中只有一个元素等于<code>x</code>，那么<code>bisect_left(ls, x)</code>的值是<code>x</code>在<code>ls</code>中的索引，<code>ls[index2] = x</code>。而<code>bisec_right(ls, x)</code>的值是<code>x</code>在<code>ls</code>中的索引加1，<code>ls[index3] &gt; x</code>。</p>
+<blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt;<span class="keyword">import</span> bisect</span><br><span class="line">&gt;ls = [<span class="number">1</span>,<span class="number">5</span>,<span class="number">9</span>,<span class="number">13</span>,<span class="number">17</span>]</span><br><span class="line">&gt;index1 = bisect.bisect(ls,<span class="number">9</span>)</span><br><span class="line">&gt;index2 = bisect.bisect_left(ls,<span class="number">9</span>)</span><br><span class="line">&gt;index3 = bisect.bisect_right(ls,<span class="number">9</span>)</span><br><span class="line">&gt;<span class="built_in">print</span>(<span class="string">&quot;index1 = &#123;&#125;, index2 = &#123;&#125;, index3 = &#123;&#125;&quot;</span>.<span class="built_in">format</span>(index1, index2, index3))</span><br></pre></td></tr></table></figure>
+<p>程序运行结果为:<br>index1 &#x3D; 3, index2 &#x3D; 2, index3 &#x3D; 3</p>
+</blockquote>
+<h3 id="case3-列表中存在多个元素等于x"><a href="#case3-列表中存在多个元素等于x" class="headerlink" title="case3 列表中存在多个元素等于x"></a>case3 列表中存在多个元素等于x</h3><p>如果列表中存在多个元素等于<code>x</code>，那么<code>bisect_left(ls, x)</code>返回最左边的那个索引，此时<code>ls[index2] = x</code>。<code>bisect_right(ls, x)</code>返回最右边的那个索引加1，此时<code>ls[index3] &gt; x</code>。</p>
+<blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt;<span class="keyword">import</span> bisect</span><br><span class="line">&gt;ls = [<span class="number">1</span>,<span class="number">5</span>,<span class="number">5</span>,<span class="number">5</span>,<span class="number">17</span>]</span><br><span class="line">&gt;index1 = bisect.bisect(ls,<span class="number">5</span>)</span><br><span class="line">&gt;index2 = bisect.bisect_left(ls,<span class="number">5</span>)</span><br><span class="line">&gt;index3 = bisect.bisect_right(ls,<span class="number">5</span>)</span><br><span class="line">&gt;<span class="built_in">print</span>(<span class="string">&quot;index1 = &#123;&#125;, index2 = &#123;&#125;, index3 = &#123;&#125;&quot;</span>.<span class="built_in">format</span>(index1, index2, index3))</span><br></pre></td></tr></table></figure>
+<p>程序运行结果为:<br>index1 &#x3D; 4, index2 &#x3D; 1, index3 &#x3D; 4</p>
+</blockquote>
+<h1 id="Java-代码"><a href="#Java-代码" class="headerlink" title="Java 代码"></a>Java 代码</h1><h2 id="方法一：-1"><a href="#方法一：-1" class="headerlink" title="方法一："></a>方法一：</h2><blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">   <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">findNumberIn2DArray</span><span class="params">(<span class="type">int</span>[][] matrix, <span class="type">int</span> target)</span> &#123;</span><br><span class="line">       <span class="keyword">for</span> (<span class="keyword">var</span> row : matrix) &#123;</span><br><span class="line">           <span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> Arrays.binarySearch(row, target);</span><br><span class="line">           <span class="keyword">if</span> (j &gt;= <span class="number">0</span>) &#123;</span><br><span class="line">               <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">   &#125;</span><br><span class="line">&gt;&#125;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<h2 id="方法二：-1"><a href="#方法二：-1" class="headerlink" title="方法二："></a>方法二：</h2><blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">   <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">findNumberIn2DArray</span><span class="params">(<span class="type">int</span>[][] matrix, <span class="type">int</span> target)</span> &#123;</span><br><span class="line">       <span class="keyword">if</span> (matrix.length == <span class="number">0</span> || matrix[<span class="number">0</span>].length == <span class="number">0</span>) &#123;</span><br><span class="line">           <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="type">int</span> <span class="variable">m</span> <span class="operator">=</span> matrix.length, n = matrix[<span class="number">0</span>].length;</span><br><span class="line">       <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> m - <span class="number">1</span>, j = <span class="number">0</span>; i &gt;= <span class="number">0</span> &amp;&amp; j &lt; n;) &#123;</span><br><span class="line">           <span class="keyword">if</span> (matrix[i][j] == target) &#123;</span><br><span class="line">               <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">           &#125;</span><br><span class="line">           <span class="keyword">if</span> (matrix[i][j] &gt; target) &#123;</span><br><span class="line">               --i;</span><br><span class="line">           &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">               ++j;</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">   &#125;</span><br><span class="line">&gt;&#125;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<h2 id="扩展-1"><a href="#扩展-1" class="headerlink" title="扩展"></a>扩展</h2><p>必须要在升序排序后再使用<code>binarySearch()</code>，否则找不到正确元素下标索引。<br><code>binarySearch(Object[] a, Object key)</code>搜索结果分析。</p>
+<ul>
+<li>在数组中搜索到key值，返回搜索值的索引下标；</li>
+<li>搜索值key在数组范围内，但不属于数组元素，则从1开始计数，返回“ - 插入点索引值”；</li>
+<li>搜索值key小于数组最小元素值，返回“-1”；</li>
+<li>搜索值key大于数组最大元素，返回“-（length+1）”。</li>
+</ul>
+<p>举例：</p>
+<blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&gt;<span class="type">int</span>[] arr = <span class="keyword">new</span> <span class="title class_">int</span>[]&#123;<span class="number">1</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">7</span>,<span class="number">9</span>&#125;;</span><br><span class="line">&gt;Arrays.sort(arr);</span><br><span class="line">&gt;<span class="comment">//1、在数组中搜索到key值，返回搜索值的索引下标；</span></span><br><span class="line">&gt;<span class="type">int</span> <span class="variable">x1</span> <span class="operator">=</span> Arrays.binarySearch(arr, <span class="number">5</span>);</span><br><span class="line">&gt;<span class="comment">//2、搜索值key在数组范围内，但不属于数组元素，则从1开始计数，返回“-插入点索引值”；</span></span><br><span class="line">&gt;<span class="type">int</span> <span class="variable">x2</span> <span class="operator">=</span> Arrays.binarySearch(arr, <span class="number">4</span>);</span><br><span class="line">&gt;<span class="comment">//3、搜索值key小于数组最小元素值，返回“-1”</span></span><br><span class="line">&gt;<span class="type">int</span> <span class="variable">x3</span> <span class="operator">=</span> Arrays.binarySearch(arr, <span class="number">0</span>);</span><br><span class="line">&gt;<span class="comment">//4、搜索值key大于数组最大元素，返回“-（length+1）”。</span></span><br><span class="line">&gt;<span class="type">int</span> <span class="variable">x4</span> <span class="operator">=</span> Arrays.binarySearch(arr, <span class="number">10</span>);</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>程序运行结果为:</p>
+<blockquote>
+<p><code>x1 = 2; x2 = -3; x3 = -1; x4 = -6</code></p>
+</blockquote>
+
+    </div>
+
+    
+    
+    
+    <div>
+    
+      <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+
+    
+    </div>
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>LiuZhihua
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://shiquheng.github.io/2023/03/08/10-54-36/" title="LeetCode_二维数组中的查找">https://shiquheng.github.io/2023/03/08/10-54-36/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/LeetCode/" rel="tag"># LeetCode</a>
+              <a href="/tags/%E6%95%B0%E7%BB%84/" rel="tag"># 数组</a>
+              <a href="/tags/%E5%8F%8C%E6%8C%87%E9%92%88/" rel="tag"># 双指针</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2023/03/07/20-09-44/" rel="prev" title="LeetCode_数组中的重复数字">
+                  <i class="fa fa-chevron-left"></i> LeetCode_数组中的重复数字
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2023/03/08/20-37-35/" rel="next" title="LeetCode-替换空格">
+                  LeetCode-替换空格 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+  
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">LiuZhihua</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div><script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://cdn.jsdelivr.net/npm/canvas-nest.js@1/dist/canvas-nest.js"></script>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+  
+
+
+
+
+
+  <!-- 页面点击小红心 -->
+  <script type="text/javascript" src="/js/clicklove.js"></script>
+  <script type="text/javascript" src="/js/dynamic_bg.js"></script>
+</body>
+</html>
