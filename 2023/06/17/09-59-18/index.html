@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/good_16x16.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/good_16x16.png">
+  <link rel="mask-icon" href="/images/good.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha256-Z1K5uhUaJXA7Ll0XrZ/0JhX4lAtZFpT6jkKrEDT0drU=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"shiquheng.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.14.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="摘要本文记录了通过HttpServletResponse的简单应用示例。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HttpServletResponse的简单应用示例">
+<meta property="og:url" content="https://shiquheng.github.io/2023/06/17/09-59-18/index.html">
+<meta property="og:site_name" content="Liuzhihua">
+<meta property="og:description" content="摘要本文记录了通过HttpServletResponse的简单应用示例。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-06-17T01:59:18.000Z">
+<meta property="article:modified_time" content="2023-06-20T09:01:17.418Z">
+<meta property="article:author" content="LiuZhihua">
+<meta property="article:tag" content="Java">
+<meta property="article:tag" content="Servlet">
+<meta property="article:tag" content="Response">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://shiquheng.github.io/2023/06/17/09-59-18/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://shiquheng.github.io/2023/06/17/09-59-18/","path":"2023/06/17/09-59-18/","title":"HttpServletResponse的简单应用示例"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>HttpServletResponse的简单应用示例 | Liuzhihua</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Liuzhihua</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">永远不要随波逐流</p>
+      <img class="custom-logo-image" src="/uploads/liuzhihua_logo.png" alt="Liuzhihua">
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">33</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">10</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">27</span></a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1%E3%80%81%E7%AE%80%E5%8D%95%E5%88%86%E7%B1%BB"><span class="nav-number">1.</span> <span class="nav-text">1、简单分类</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2%E3%80%81%E5%B8%B8%E8%A7%81%E5%BA%94%E7%94%A8"><span class="nav-number">2.</span> <span class="nav-text">2、常见应用</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">LiuZhihua</p>
+  <div class="site-description" itemprop="description">个人博客</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">27</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">33</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/ShiQuheng" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;ShiQuheng" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/liuzhihua0415@foxmail.com" title="E-Mail → liuzhihua0415@foxmail.com" rel="noopener me"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://shiquheng.github.io/2023/06/17/09-59-18/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="LiuZhihua">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Liuzhihua">
+      <meta itemprop="description" content="个人博客">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="HttpServletResponse的简单应用示例 | Liuzhihua">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          HttpServletResponse的简单应用示例
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-06-17 09:59:18" itemprop="dateCreated datePublished" datetime="2023-06-17T09:59:18+08:00">2023-06-17</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-06-20 17:01:17" itemprop="dateModified" datetime="2023-06-20T17:01:17+08:00">2023-06-20</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Servlet/" itemprop="url" rel="index"><span itemprop="name">Servlet</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p><strong>摘要</strong><br>本文记录了通过HttpServletResponse的简单应用示例。 </p>
+<span id="more"></span>
+<p>web服务器接收到客户端的http请求，针对这个请求，分别创建一个代表请求的HttpServletRequest对象，代表响应的一个HttpServletResponse对象</p>
+<ul>
+<li>如果要获取客户端请求传过来的参数：找HttpServletRequest</li>
+<li>如果要给客户端响应一些信息：找HttpServletResponse</li>
+</ul>
+<h1 id="1、简单分类"><a href="#1、简单分类" class="headerlink" title="1、简单分类"></a>1、简单分类</h1><p>负责向浏览器发送数据的方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ServletOutputStream <span class="title function_">getOutputStream</span><span class="params">()</span> <span class="keyword">throws</span> IOException;</span><br><span class="line">PrintWriter <span class="title function_">getWriter</span><span class="params">()</span> <span class="keyword">throws</span> IOException;</span><br></pre></td></tr></table></figure>
+<p>负责向浏览器发送响应头的方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> <span class="title function_">setCharacterEncoding</span><span class="params">(String var1)</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> <span class="title function_">setContentLength</span><span class="params">(<span class="type">int</span> var1)</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> <span class="title function_">setContentLengthLong</span><span class="params">(<span class="type">long</span> var1)</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> <span class="title function_">setContentType</span><span class="params">(String var1)</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> <span class="title function_">setDateHeader</span><span class="params">(String var1, <span class="type">long</span> var2)</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> <span class="title function_">addDateHeader</span><span class="params">(String var1, <span class="type">long</span> var2)</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> <span class="title function_">setHeader</span><span class="params">(String var1, String var2)</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> <span class="title function_">addHeader</span><span class="params">(String var1, String var2)</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> <span class="title function_">setIntHeader</span><span class="params">(String var1, <span class="type">int</span> var2)</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> <span class="title function_">addIntHeader</span><span class="params">(String var1, <span class="type">int</span> var2)</span>;</span><br></pre></td></tr></table></figure>
+<p>响应的状态码</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="variable">SC_CONTINUE</span> <span class="operator">=</span> <span class="number">100</span>;</span><br><span class="line"><span class="type">int</span> <span class="variable">SC_SWITCHING_PROTOCOLS</span> <span class="operator">=</span> <span class="number">101</span>;</span><br><span class="line"><span class="type">int</span> <span class="variable">SC_OK</span> <span class="operator">=</span> <span class="number">200</span>;</span><br><span class="line"><span class="type">int</span> <span class="variable">SC_CREATED</span> <span class="operator">=</span> <span class="number">201</span>;</span><br><span class="line"><span class="type">int</span> <span class="variable">SC_ACCEPTED</span> <span class="operator">=</span> <span class="number">202</span>;</span><br><span class="line"><span class="type">int</span> <span class="variable">SC_NON_AUTHORITATIVE_INFORMATION</span> <span class="operator">=</span> <span class="number">203</span>;</span><br><span class="line"><span class="type">int</span> <span class="variable">SC_NO_CONTENT</span> <span class="operator">=</span> <span class="number">204</span>;</span><br><span class="line"><span class="type">int</span> <span class="variable">SC_RESET_CONTENT</span> <span class="operator">=</span> <span class="number">205</span>;</span><br><span class="line"><span class="type">int</span> <span class="variable">SC_PARTIAL_CONTENT</span> <span class="operator">=</span> <span class="number">206</span>;</span><br><span class="line"><span class="type">int</span> <span class="variable">SC_MULTIPLE_CHOICES</span> <span class="operator">=</span> <span class="number">300</span>;</span><br><span class="line"><span class="type">int</span> <span class="variable">SC_MOVED_PERMANENTLY</span> <span class="operator">=</span> <span class="number">301</span>;</span><br><span class="line"><span class="type">int</span> <span class="variable">SC_MOVED_TEMPORARILY</span> <span class="operator">=</span> <span class="number">302</span>;</span><br><span class="line"><span class="type">int</span> <span class="variable">SC_FOUND</span> <span class="operator">=</span> <span class="number">302</span>;</span><br><span class="line"><span class="type">int</span> <span class="variable">SC_SEE_OTHER</span> <span class="operator">=</span> <span class="number">303</span>;</span><br><span class="line"><span class="type">int</span> <span class="variable">SC_NOT_MODIFIED</span> <span class="operator">=</span> <span class="number">304</span>;</span><br><span class="line"><span class="type">int</span> <span class="variable">SC_USE_PROXY</span> <span class="operator">=</span> <span class="number">305</span>;</span><br><span class="line"><span class="type">int</span> <span class="variable">SC_TEMPORARY_REDIRECT</span> <span class="operator">=</span> <span class="number">307</span>;</span><br><span class="line"><span class="type">int</span> <span class="variable">SC_BAD_REQUEST</span> <span class="operator">=</span> <span class="number">400</span>;</span><br><span class="line"><span class="type">int</span> <span class="variable">SC_UNAUTHORIZED</span> <span class="operator">=</span> <span class="number">401</span>;</span><br><span class="line"><span class="type">int</span> <span class="variable">SC_PAYMENT_REQUIRED</span> <span class="operator">=</span> <span class="number">402</span>;</span><br><span class="line"><span class="type">int</span> <span class="variable">SC_FORBIDDEN</span> <span class="operator">=</span> <span class="number">403</span>;</span><br><span class="line"><span class="type">int</span> <span class="variable">SC_NOT_FOUND</span> <span class="operator">=</span> <span class="number">404</span>;</span><br><span class="line"><span class="type">int</span> <span class="variable">SC_METHOD_NOT_ALLOWED</span> <span class="operator">=</span> <span class="number">405</span>;</span><br><span class="line"><span class="type">int</span> <span class="variable">SC_NOT_ACCEPTABLE</span> <span class="operator">=</span> <span class="number">406</span>;</span><br><span class="line"><span class="type">int</span> <span class="variable">SC_PROXY_AUTHENTICATION_REQUIRED</span> <span class="operator">=</span> <span class="number">407</span>;</span><br><span class="line"><span class="type">int</span> <span class="variable">SC_REQUEST_TIMEOUT</span> <span class="operator">=</span> <span class="number">408</span>;</span><br><span class="line"><span class="type">int</span> <span class="variable">SC_CONFLICT</span> <span class="operator">=</span> <span class="number">409</span>;</span><br><span class="line"><span class="type">int</span> <span class="variable">SC_GONE</span> <span class="operator">=</span> <span class="number">410</span>;</span><br><span class="line"><span class="type">int</span> <span class="variable">SC_LENGTH_REQUIRED</span> <span class="operator">=</span> <span class="number">411</span>;</span><br><span class="line"><span class="type">int</span> <span class="variable">SC_PRECONDITION_FAILED</span> <span class="operator">=</span> <span class="number">412</span>;</span><br><span class="line"><span class="type">int</span> <span class="variable">SC_REQUEST_ENTITY_TOO_LARGE</span> <span class="operator">=</span> <span class="number">413</span>;</span><br><span class="line"><span class="type">int</span> <span class="variable">SC_REQUEST_URI_TOO_LONG</span> <span class="operator">=</span> <span class="number">414</span>;</span><br><span class="line"><span class="type">int</span> <span class="variable">SC_UNSUPPORTED_MEDIA_TYPE</span> <span class="operator">=</span> <span class="number">415</span>;</span><br><span class="line"><span class="type">int</span> <span class="variable">SC_REQUESTED_RANGE_NOT_SATISFIABLE</span> <span class="operator">=</span> <span class="number">416</span>;</span><br><span class="line"><span class="type">int</span> <span class="variable">SC_EXPECTATION_FAILED</span> <span class="operator">=</span> <span class="number">417</span>;</span><br><span class="line"><span class="type">int</span> <span class="variable">SC_INTERNAL_SERVER_ERROR</span> <span class="operator">=</span> <span class="number">500</span>;</span><br><span class="line"><span class="type">int</span> <span class="variable">SC_NOT_IMPLEMENTED</span> <span class="operator">=</span> <span class="number">501</span>;</span><br><span class="line"><span class="type">int</span> <span class="variable">SC_BAD_GATEWAY</span> <span class="operator">=</span> <span class="number">502</span>;</span><br><span class="line"><span class="type">int</span> <span class="variable">SC_SERVICE_UNAVAILABLE</span> <span class="operator">=</span> <span class="number">503</span>;</span><br><span class="line"><span class="type">int</span> <span class="variable">SC_GATEWAY_TIMEOUT</span> <span class="operator">=</span> <span class="number">504</span>;</span><br><span class="line"><span class="type">int</span> <span class="variable">SC_HTTP_VERSION_NOT_SUPPORTED</span> <span class="operator">=</span> <span class="number">505</span>;</span><br></pre></td></tr></table></figure>
+<h1 id="2、常见应用"><a href="#2、常见应用" class="headerlink" title="2、常见应用"></a>2、常见应用</h1><ol>
+<li>向浏览器输出消息（之前Servlet的demo里有，就不展开了）</li>
+<li>下载文件<ol>
+<li>要获取下载文件的路径</li>
+<li>获取下载的文件名</li>
+<li>让浏览器能够支持下载我们需要的东西</li>
+<li>获取下载文件的输入流</li>
+<li>创建缓冲区</li>
+<li>获取OutputStream对象</li>
+<li>将FileOutputStream流写入到buffer缓冲区</li>
+<li>使用OutputStream将缓冲区中的数据输出到客户端</li>
+</ol>
+</li>
+</ol>
+
+    </div>
+
+    
+    
+    
+    <div>
+    
+      <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+
+    
+    </div>
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>LiuZhihua
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://shiquheng.github.io/2023/06/17/09-59-18/" title="HttpServletResponse的简单应用示例">https://shiquheng.github.io/2023/06/17/09-59-18/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/Java/" rel="tag"># Java</a>
+              <a href="/tags/Servlet/" rel="tag"># Servlet</a>
+              <a href="/tags/Response/" rel="tag"># Response</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2023/06/17/09-40-11/" rel="prev" title="通过HttpServletContext读取配置文件">
+                  <i class="fa fa-chevron-left"></i> 通过HttpServletContext读取配置文件
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2023/06/20/17-03-59/" rel="next" title="解决Tomcat控制台显示乱码问题">
+                  解决Tomcat控制台显示乱码问题 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+  
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">LiuZhihua</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div><script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://cdn.jsdelivr.net/npm/canvas-nest.js@1/dist/canvas-nest.js"></script>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+  
+
+
+
+
+
+  <!-- 页面点击小红心 -->
+  <script type="text/javascript" src="/js/clicklove.js"></script>
+  <script type="text/javascript" src="/js/dynamic_bg.js"></script>
+</body>
+</html>
