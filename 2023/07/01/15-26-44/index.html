@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/good_16x16.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/good_16x16.png">
+  <link rel="mask-icon" href="/images/good.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha256-Z1K5uhUaJXA7Ll0XrZ/0JhX4lAtZFpT6jkKrEDT0drU=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"shiquheng.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.14.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="摘要本文记录了MySQL的安装教程。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MySQL安装教程">
+<meta property="og:url" content="https://shiquheng.github.io/2023/07/01/15-26-44/index.html">
+<meta property="og:site_name" content="Liuzhihua">
+<meta property="og:description" content="摘要本文记录了MySQL的安装教程。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://shiquheng.github.io/pic/2023-07-01-15-43-50.png">
+<meta property="og:image" content="https://shiquheng.github.io/pic/2023-07-01-15-45-16.png">
+<meta property="og:image" content="https://shiquheng.github.io/pic/2023-07-01-15-49-03.png">
+<meta property="og:image" content="https://shiquheng.github.io/pic/2023-07-01-16-39-38.png">
+<meta property="og:image" content="https://shiquheng.github.io/pic/2023-07-01-16-40-30.png">
+<meta property="og:image" content="https://shiquheng.github.io/pic/2023-07-01-16-43-48.png">
+<meta property="og:image" content="https://shiquheng.github.io/pic/2023-07-01-16-46-49.png">
+<meta property="og:image" content="https://shiquheng.github.io/pic/2023-07-01-16-49-35.png">
+<meta property="og:image" content="https://shiquheng.github.io/pic/2023-07-01-16-50-57.png">
+<meta property="og:image" content="https://shiquheng.github.io/pic/2023-07-01-16-52-45.png">
+<meta property="og:image" content="https://shiquheng.github.io/pic/2023-07-01-17-00-14.png">
+<meta property="og:image" content="https://shiquheng.github.io/pic/2023-07-01-17-22-34.png">
+<meta property="og:image" content="https://shiquheng.github.io/pic/2023-07-01-17-03-07.png">
+<meta property="og:image" content="https://shiquheng.github.io/pic/2023-07-01-17-06-16.png">
+<meta property="og:image" content="https://shiquheng.github.io/pic/2023-07-03-09-35-29.png">
+<meta property="og:image" content="https://shiquheng.github.io/pic/2023-07-03-09-37-52.png">
+<meta property="og:image" content="https://shiquheng.github.io/pic/2023-07-03-09-48-52.png">
+<meta property="og:image" content="https://shiquheng.github.io/pic/2023-07-03-09-51-01.png">
+<meta property="article:published_time" content="2023-07-01T07:26:44.000Z">
+<meta property="article:modified_time" content="2023-07-03T01:51:08.837Z">
+<meta property="article:author" content="LiuZhihua">
+<meta property="article:tag" content="Java">
+<meta property="article:tag" content="MySQL">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://shiquheng.github.io/pic/2023-07-01-15-43-50.png">
+
+
+<link rel="canonical" href="https://shiquheng.github.io/2023/07/01/15-26-44/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://shiquheng.github.io/2023/07/01/15-26-44/","path":"2023/07/01/15-26-44/","title":"MySQL安装教程"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>MySQL安装教程 | Liuzhihua</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Liuzhihua</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">永远不要随波逐流</p>
+      <img class="custom-logo-image" src="/uploads/liuzhihua_logo.png" alt="Liuzhihua">
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">39</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">12</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">33</span></a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#MySQL%E4%B8%8B%E8%BD%BD%E4%B8%8E%E5%AE%89%E8%A3%85"><span class="nav-number">1.</span> <span class="nav-text">MySQL下载与安装</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E4%B8%8B%E8%BD%BD"><span class="nav-number">1.1.</span> <span class="nav-text">一、下载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E5%AE%89%E8%A3%85"><span class="nav-number">1.2.</span> <span class="nav-text">二、安装</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%85%B3%E9%97%ADmysql%E5%BC%80%E6%9C%BA%E8%87%AA%E5%90%AF%E5%8A%A8"><span class="nav-number">2.</span> <span class="nav-text">关闭mysql开机自启动</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9B%BE%E5%BD%A2%E5%8C%96%E7%95%8C%E9%9D%A2%E8%BF%9E%E6%8E%A5mysql"><span class="nav-number">3.</span> <span class="nav-text">图形化界面连接mysql</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">LiuZhihua</p>
+  <div class="site-description" itemprop="description">个人博客</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">33</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">39</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/ShiQuheng" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;ShiQuheng" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/liuzhihua0415@foxmail.com" title="E-Mail → liuzhihua0415@foxmail.com" rel="noopener me"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://shiquheng.github.io/2023/07/01/15-26-44/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="LiuZhihua">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Liuzhihua">
+      <meta itemprop="description" content="个人博客">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="MySQL安装教程 | Liuzhihua">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          MySQL安装教程
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-07-01 15:26:44" itemprop="dateCreated datePublished" datetime="2023-07-01T15:26:44+08:00">2023-07-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-07-03 09:51:08" itemprop="dateModified" datetime="2023-07-03T09:51:08+08:00">2023-07-03</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/MySQL/" itemprop="url" rel="index"><span itemprop="name">MySQL</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p><strong>摘要</strong><br>本文记录了<code>MySQL</code>的安装教程。 </p>
+<span id="more"></span>
+<h1 id="MySQL下载与安装"><a href="#MySQL下载与安装" class="headerlink" title="MySQL下载与安装"></a>MySQL下载与安装</h1><h2 id="一、下载"><a href="#一、下载" class="headerlink" title="一、下载"></a>一、下载</h2><ol>
+<li>下载地址：*<a target="_blank" rel="noopener" href="https://downloads.mysql.com/archives/community/">https://downloads.mysql.com/archives/community/</a>*  </li>
+<li>当前最新是8.0版本，我选择上一个最新的<code>mysql-5.7.24-winx64.zip</code><br><img src="/../pic/2023-07-01-15-43-50.png" alt="下载链接1"><br><img src="/../pic/2023-07-01-15-45-16.png" alt="下载链接2"></li>
+</ol>
+<h2 id="二、安装"><a href="#二、安装" class="headerlink" title="二、安装"></a>二、安装</h2><ul>
+<li><code>zip</code>格式是自己解压，解压缩之后其实<code>MySQL</code>就可以使用了：  </li>
+<li><code>bin</code>目录下保存了<code>MySQL</code>常用的命令工具以及管理工具。</li>
+<li><code>data</code>目录是<code>MySQL</code>默认用来保存数据文件以及日志文件的地方（我的因刚安装还没有<code>data</code>文件夹, 后面运行<code>mysqld --initialize-insecure --user=mysql</code>时会自动创建<code>data</code>文件夹<br>）。</li>
+<li><code>docs</code>目录下是<code>MySQL</code>的帮助文档。</li>
+<li><code>include</code>目录和<code>lib</code>目录是<code>MySQL</code>所依赖的头文件以及库文件。</li>
+<li><code>share</code>目录下保存目录文件以及日志文件。</li>
+</ul>
+<p>但是要进行环境变量配置<code>zip</code>格式是自己解压。</p>
+<ol>
+<li><p>我的电脑-&gt;属性-&gt;高级系统设置-&gt;环境变量</p>
+</li>
+<li><p>选择<code>Path</code>,添加: 你的<code>mysql bin</code>文件夹的路径;<br><code>E:\Java\MySQL\mysql-5.7.24-winx64\mysql-5.7.24\bin</code><br><img src="/../pic/2023-07-01-15-49-03.png" alt="配置环境变量">  </p>
+</li>
+<li><p>配置完环境变量之后，在<code>E:\Java\MySQL\mysql-5.7.24-winx64\mysql-5.7.24</code>目录下新增加一个配置文件<code>mysql.ini</code><br><img src="/../pic/2023-07-01-16-39-38.png" alt="新建配置文件"></p>
+</li>
+<li><p>编辑自己的<code>mysql</code>配置文件, 在<code>mysql.ini</code>文件里添加如下内容：  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">[mysql]</span><br><span class="line"></span><br><span class="line"># 设置mysql客户端默认字符集</span><br><span class="line">default-character-set=utf8 </span><br><span class="line"></span><br><span class="line">[mysqld]</span><br><span class="line"></span><br><span class="line">#设置3306端口</span><br><span class="line">port = 3306 </span><br><span class="line"></span><br><span class="line"># 设置mysql的安装目录</span><br><span class="line">basedir=E:\Java\MySQL\mysql-5.7.24-winx64\mysql-5.7.24</span><br><span class="line"></span><br><span class="line"># 设置mysql数据库的数据的存放目录</span><br><span class="line">datadir=E:\Java\MySQL\mysql-5.7.24-winx64\mysql-5.7.24\data</span><br><span class="line"></span><br><span class="line"># 允许最大连接数</span><br><span class="line">max_connections=200</span><br><span class="line"></span><br><span class="line"># 服务端使用的字符集默认为8比特编码的latin1字符集</span><br><span class="line">character-set-server=utf8</span><br><span class="line"></span><br><span class="line"># 创建新表时将使用的默认存储引擎</span><br><span class="line">default-storage-engine=INNODB</span><br></pre></td></tr></table></figure>
+<p>注意修改其中的安装目录以及数据存放目录为自己的目录。</p>
+</li>
+<li><p>使用管理员模式打开<code>cmd</code>,，不需要进入安装目录（因为之前配置过环境变量），输入下面命令:<br><code>mysqld --initialize-insecure --user=mysql</code><br>回车：<br><img src="/../pic/2023-07-01-16-40-30.png" alt="初始化MySQL数据目录"><br>用于初始化<code>MySQL</code>数据目录并指定<code>MySQL</code>用户。这会在安装目录下新建一个<code>data</code>文件夹。<br><img src="/../pic/2023-07-01-16-43-48.png" alt="新建data"></p>
+<ul>
+<li>出现下面的错误是因为自己新建了data文件夹，导致初始化失败。<br><img src="/../pic/2023-07-01-16-46-49.png" alt="初始化失败"><br>解决方法就是把<code>data</code>文件夹删了再执行上面的命令即可。</li>
+</ul>
+</li>
+<li><p>输入下面命令：<code>mysqld install</code><br>回车，会提示安装成功:<br><img src="/../pic/2023-07-01-16-49-35.png" alt="安装成功">    </p>
+</li>
+<li><p>启动服务，输入如下命令:<code>net start mysql</code>，回车，启动成功后如下图:<br><img src="/../pic/2023-07-01-16-50-57.png" alt="启动服务">   </p>
+</li>
+<li><p>服务启动成功之后，需要登录的时候输入命令:<code>mysql -u root -p</code>（第一次登录没有密码，直接按回车过）<br><img src="/../pic/2023-07-01-16-52-45.png" alt="登录MySQL">  </p>
+</li>
+<li><p>修改密码（先退出刚刚登录的MySQL，输入<code>\q</code>即可退出(注意直接关闭<code>cmd</code>是不会退出的，要输入退出指令<code>\q</code>或者<code>exit</code>)，然后再启动mysql，输入<code>net start mysql</code>），执行如下命令：<code>mysqladmin -u root -p password</code>，回车，<code>enter password</code>也回车，密码一般设置为root，方便记忆,这里我设置为<code>123456</code>：<br> <img src="/../pic/2023-07-01-17-00-14.png" alt="修改密码">  </p>
+</li>
+<li><p>改完密码后重启<code>MySQL</code>，再试试登录<code>MySQL</code>:<br>命令行输入：<code>mysql -u root -p123456</code>注意<code>-p</code>后面不要加空格！！！<br><img src="/../pic/2023-07-01-17-22-34.png" alt="改完密码后重启MySQL，再试试登录"></p>
+</li>
+</ol>
+<h1 id="关闭mysql开机自启动"><a href="#关闭mysql开机自启动" class="headerlink" title="关闭mysql开机自启动"></a>关闭mysql开机自启动</h1><ol>
+<li>在<code>运行</code>中输入:<code>services.msc</code>(windows快捷键<code>win</code>+<code>R</code>)<br><img src="/../pic/2023-07-01-17-03-07.png" alt="打开Windows服务">  </li>
+<li>找到<code>MySql</code>右键属性，自动改成手动:<br><img src="/../pic/2023-07-01-17-06-16.png" alt="自动改成手动">  </li>
+<li>手动关闭MySQL服务命令：<br><code>net stop mysql</code></li>
+</ol>
+<h1 id="图形化界面连接mysql"><a href="#图形化界面连接mysql" class="headerlink" title="图形化界面连接mysql"></a>图形化界面连接mysql</h1><p>主流的选择有<code>Navicat</code>、<code>SQLyog</code>等等，这里选择<code>SQLyog</code>。</p>
+<ol>
+<li><p>简介：<code>SQLyog</code> 是一个快速而简洁的图形化管理<code>MYSQL</code>数据库的工具，它能够在任何地点有效地管理你的数据库，由业界著名的<code>Webyog</code>公司出品。<br><code>SQLyog</code>是一款人人都能轻松上手的数据库管理工具，极为简单的操作方法，内置的丰富的强大功能，可以快速帮助用户备份和恢复数据，还能够快速地运行<code>SQL</code>脚本文件，为用户的使用提供便捷，另外<code>SQLyog</code>还带来出色的编辑功能，可以轻松查找、替换指定内容或列出全部或匹配标记。  </p>
+</li>
+<li><p>下载地址：<br><em><a target="_blank" rel="noopener" href="https://github.com/webyog/sqlyog-community/wiki/Downloads">https://github.com/webyog/sqlyog-community/wiki/Downloads</a></em>  </p>
+</li>
+<li><p>安装（一直<code>下一步</code>就行）：<br><img src="/../pic/2023-07-03-09-35-29.png" alt="安装">  </p>
+</li>
+<li><p>注册：<br><img src="/../pic/2023-07-03-09-37-52.png" alt="注册"><br>名称可以随便填<br>证书密钥：<code>8d8120df-a5c3-4989-8f47-5afc79c56e7c</code><br>本次分享的SQLyog注册密钥建议个人自用，不要随意公开分享给他人哦。</p>
+</li>
+<li><p>连接：<br><img src="/../pic/2023-07-03-09-48-52.png" alt="连接">  </p>
+</li>
+<li><p>连接成功：<br><img src="/../pic/2023-07-03-09-51-01.png" alt="连接成功"></p>
+</li>
+</ol>
+
+    </div>
+
+    
+    
+    
+    <div>
+    
+      <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+
+    
+    </div>
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>LiuZhihua
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://shiquheng.github.io/2023/07/01/15-26-44/" title="MySQL安装教程">https://shiquheng.github.io/2023/07/01/15-26-44/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/Java/" rel="tag"># Java</a>
+              <a href="/tags/MySQL/" rel="tag"># MySQL</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2023/06/25/17-33-03/" rel="prev" title="JSP原理及基础语法">
+                  <i class="fa fa-chevron-left"></i> JSP原理及基础语法
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+  
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">LiuZhihua</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div><script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://cdn.jsdelivr.net/npm/canvas-nest.js@1/dist/canvas-nest.js"></script>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+  
+
+
+
+
+
+  <!-- 页面点击小红心 -->
+  <script type="text/javascript" src="/js/clicklove.js"></script>
+  <script type="text/javascript" src="/js/dynamic_bg.js"></script>
+</body>
+</html>
